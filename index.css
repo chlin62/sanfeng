@@ -1,0 +1,50 @@
+
+	body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+    background:  url(img/background.png) center center fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+  	}
+
+	header{
+	
+	}
+	main{
+		padding-top: 20px;
+		flex: 1 0 auto;
+	}
+	.logo{
+	
+	}
+	.mobile-logo{
+	padding-top: 25px;
+	border-bottom:1px solid #ddd;
+	}
+	
+	.gold-text{
+	color:#424242 !important;
+	font-size: 14px;
+	}
+	.h3-gold-text{
+	color:#424242 !important;
+	}
+	.gold{
+	background-color: #424242 !important;
+	}
+	.card-title{
+	color:#424242 !important;
+	}
+	.proItem{
+	color:#424242 !important;
+	font-size: 18px;
+	}
+	.proInfo{
+	color:#424242 !important;
+	}
+	html{
+	font-family:serif,sans-serif,cursive,fantasy,monospace,微軟正黑體;
+	}

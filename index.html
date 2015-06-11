@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<!-- Compiled and minified JavaScript -->
+		<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+		<script src="init.js"></script>
+	</head>
+	
+	<body>
+		<header>
+			<nav class="lime">
+				<div id="pagepiling" class="nav-wrapper container ">
+					<a href="#" class="brand-logo logo"><img style="
+						width: 200px;
+					" src="./img/logo.png"/></a>
+					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="#" class="gold-text">最新消息</a></li>
+						<li><a href="#" class="gold-text">商品清單</a></li>
+						<!--<li><a href="#" class="gold-text">加入會員</a></li>-->
+						<li><a href="#" class="gold-text">食譜推薦</a></li>
+						<li><a href="#" class="gold-text">我的食譜</a></li>
+						<li><a href="#" class="gold-text">設定</a></li>
+						<li><a href="#" class="gold-text">登出</a></li>
+						<!--<li>
+												<div >
+																	<input placeholder="E-mail" id="first_name" type="text" class="validate">
+																	<label for="first_name">E-mail</label>
+												</div>
+						</li>-->
+					</ul>
+					<ul class="side-nav" id="mobile-demo">
+						<li class="mobile-logo" style="padding-top: 25px;"><img style="
+							width: 200px;
+						" src="./img/logo.png"></li>
+						<li><a href="index.html" class="gold-text">最新消息</a></li>
+						<li><a href="product.html" class="gold-text">商品清單</a></li>
+						<!--<li><a href="#" class="gold-text">加入會員</a></li>-->
+						<li><a href="#" class="gold-text">食譜推薦</a></li>
+						<li><a href="#" class="gold-text">我的食譜</a></li>
+						<li><a href="#" class="gold-text">設定</a></li>
+						<li><a href="#" class="gold-text">登出</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<main style="padding-top: 0px">
+
+			<ul class="collection" id= 'news_list'>
+				
+			</ul>
+			
+
+		</main>
+		<footer class="page-footer lime">
+			<div class="footer-copyright">
+				<div class="container gold-text">
+					2015, Copyright iDO培力基地. All rights reserved
+				</div>
+			</div>		
+		</footer>
+	</body>
+	
+	<html>
+
+<script type="text/javascript">
+		
+
+		
+
+		$.ajax({
+		  url: "http://www.cs.pu.edu.tw/~s1012565/sanfeng2/index.php/article/article_list_show",
+		  type: "GET",
+		  dataType: "json",
+		  success: function(data) {
+		    //data = JSON.parse(JSON.stringify(data));
+
+		    
+		    var instString = "";
+		    for (var i = 0; i < data['article'].length; i++) {
+		    	var tag = 
+		    	'<li class="collection-item avatar">'+
+					'<img src="'+data['article'][i]['a_img']+'" alt="" class="circle">'+
+					'<a href="content.html?a_id='+data['article'][i]['a_id']+'"><span class="title">'+data['article'][i]['a_title']+'</span></a>'+
+					'<p>'+data['article'][i]['a_time']+' <br>'+
+					'</p>'+
+					'<a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>'+
+				'</li>';
+				instString+= tag;
+      		 };
+      		 //alert(instString);
+      		 document.getElementById("news_list").innerHTML = instString;
+
+		  },
+		  error: function() {
+		    alert("ERROR!!!");
+		  }
+		});
+</script>
